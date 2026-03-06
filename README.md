@@ -105,4 +105,4 @@ java ui.Main
 
 ## Diagrama UML
 El diagrama UML correspondiente al código está en:
-- `docs/UML.png`
+- `docs/bibliotecaUML.png`
