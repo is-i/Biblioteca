@@ -1,15 +1,14 @@
-# Sistema de Gestión de Biblioteca (Mini-Proyecto POO en Java)
+# Biblioteca (Mini-Proyecto POO en Java)
 
 ## Laboratorio 06 — Entrega modelo
 Proyecto sencillo por consola en **Java** con **POO** y organizado en paquetes.
 
 ### Estructura
 ```
-Lab06_Biblioteca_Java_POO/
+Biblioteca/
   README.md
   docs/
     UML.png
-    uml.dot
   src/
     model/
     service/
@@ -63,7 +62,7 @@ java ui.Main
 
 ### 1) Relaciones entre clases
 - **Uso (dependency):** `service.Biblioteca` usa `service.CalculadoraCosto`
-  - `private final CalculadoraMulta calculadora = new CalculadoraMulta();`
+  - `private final CalculadoraCosto calculadora = new CalculadoraCosto();`
   - `calculadora.calcularTotal(...)`
 
 - **Asociación:** `model.Prestamo` se asocia a `model.Usuario` y `model.Material`
@@ -107,4 +106,3 @@ java ui.Main
 ## Diagrama UML
 El diagrama UML correspondiente al código está en:
 - `docs/UML.png`
-- `docs/uml.dot` (fuente Graphviz)
