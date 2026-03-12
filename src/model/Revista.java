@@ -1,5 +1,6 @@
 package model;
 
+import service.IdGenerator;
 import service.Reglas;
 
 /**
@@ -10,7 +11,7 @@ public class Revista extends Material {
     int edicion; // default (package-private)
 
     public Revista(String titulo, int edicion) {
-        super(titulo);
+        super(titulo,'R');
         this.edicion = edicion;
     }
 

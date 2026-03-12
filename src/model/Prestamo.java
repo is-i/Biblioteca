@@ -10,7 +10,7 @@ import service.IdGenerator;
  * - Prestamo "posee" DetallePrestamo: se crea dentro y no tiene sentido sin Prestamo.
  */
 public class Prestamo {
-    private final int id;
+    private final String id;
     private final Usuario usuario;   // Asociación
     private final Material material; // Asociación
     private boolean activo;
@@ -18,14 +18,14 @@ public class Prestamo {
     private final DetallePrestamo detalle; // Composición
 
     public Prestamo(Usuario usuario, Material material, int dias) {
-        this.id = IdGenerator.nextId();
+        this.id = IdGenerator.nextId('P');
         this.usuario = usuario;
         this.material = material;
         this.activo = true;
         this.detalle = new DetallePrestamo(dias); // se crea adentro => composición
     }
 
-    public int getId() { return id; }
+    public String getId() { return id; }
     public boolean isActivo() { return activo; }
     public Usuario getUsuario() { return usuario; }
     public Material getMaterial() { return material; }

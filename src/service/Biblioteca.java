@@ -70,7 +70,7 @@ public class Biblioteca {
         }
     }
 
-    public void prestar(int idUsuario, int idMaterial, int dias) {
+    public void prestar(String idUsuario, String idMaterial, int dias) {
         Usuario u = buscarUsuario(idUsuario);
         Material m = buscarMaterial(idMaterial);
 
@@ -103,7 +103,7 @@ public class Biblioteca {
         System.out.println("Costo base = " + costoBase + " | Total = " + total);
     }
 
-    public void devolver(int idPrestamo) {
+    public void devolver(String idPrestamo) {
         Prestamo p = buscarPrestamo(idPrestamo);
         if (p == null) {
             System.out.println("Préstamo no encontrado.");
@@ -121,23 +121,23 @@ public class Biblioteca {
         System.out.println("Préstamo " + idPrestamo + " devuelto y cerrado.");
     }
 
-    private Usuario buscarUsuario(int id) {
+    private Usuario buscarUsuario(String id) {
         for (Usuario u : usuarios) {
-            if (u.getId() == id) return u;
+            if (u.getId().equals(id)) return u;
         }
         return null;
     }
 
-    private Material buscarMaterial(int id) {
+    private Material buscarMaterial(String id) {
         for (Material m : materiales) {
-            if (m.getId() == id) return m;
+            if (m.getId().equals(id))return m;
         }
         return null;
     }
 
-    private Prestamo buscarPrestamo(int id) {
+    private Prestamo buscarPrestamo(String id) {
         for (Prestamo p : prestamos) {
-            if (p.getId() == id) return p;
+            if (p.getId().equals(id)) return p;
         }
         return null;
     }

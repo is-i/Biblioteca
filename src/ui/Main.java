@@ -40,16 +40,16 @@ public class Main {
                 case 2 -> biblioteca.listarUsuarios();
                 case 3 -> {
                     System.out.print("ID Usuario: ");
-                    int idU = leerEntero(sc);
+                    String idU = sc.nextLine();
                     System.out.print("ID Material: ");
-                    int idM = leerEntero(sc);
+                    String idM = sc.nextLine();
                     System.out.print("Días de préstamo: ");
                     int dias = leerEntero(sc);
                     biblioteca.prestar(idU, idM, dias);
                 }
                 case 4 -> {
                     System.out.print("ID Préstamo: ");
-                    int idP = leerEntero(sc);
+                    String idP = sc.nextLine();
                     biblioteca.devolver(idP);
                 }
                 case 5 -> biblioteca.listarPrestamos();
@@ -62,10 +62,12 @@ public class Main {
     }
 
     private static int leerEntero(Scanner sc) {
-        while (!sc.hasNextInt()) {
-            sc.next();
-            System.out.print("Ingrese un número: ");
+        while (true) {
+            try {
+                return Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.print("Ingrese un número válido: ");
+            }
         }
-        return sc.nextInt();
     }
 }

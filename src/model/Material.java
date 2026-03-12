@@ -8,24 +8,25 @@ import service.IdGenerator;
  * - Implementa la interfaz Prestable.
  */
 public abstract class Material implements Prestable {
-    private final int id;
+    private String id;
     private String titulo;
 
     // protected: visible en subclases (evidencia de visibilidad)
     protected boolean disponible = true;
 
-    protected Material(String titulo) {
-        this.id = IdGenerator.nextId(); // static: generador de IDs
+    protected Material(String titulo, char typeId) {
         this.titulo = titulo;
+        this.id = IdGenerator.nextId(typeId);
     }
 
-    public int getId() { return id; }
     public String getTitulo() { return titulo; }
 
     public void setTitulo(String titulo) {
         if (titulo == null || titulo.isBlank()) return;
         this.titulo = titulo;
     }
+
+    public String getId() { return id; }
 
     public abstract String getTipo();
 
@@ -43,6 +44,6 @@ public abstract class Material implements Prestable {
 
     @Override
     public String toString() {
-        return "[" + getTipo() + "] ID=" + id + ", Título='" + titulo + "', Disponible=" + disponible;
+        return "[" + getTipo() + "], id=" + id + ", Título='" + titulo + "', Disponible=" + disponible;
     }
 }
